@@ -15,23 +15,15 @@ import Paper from '@material-ui/core/Paper';
 function createData(weekEnding,retailSales, wholesaleSales, unitsSold, retailerMargin) {
   return { weekEnding,retailSales, wholesaleSales, unitsSold, retailerMargin };
 }
-const rows = [
-  createData("05-12-2020", 348123, 255721, 887, 123294),
-  createData("05-13-2020", 348124, 255721, 887, 123294),
-  createData("05-02-2020", 348123, 255721, 887, 123294),
-  createData("05-11-2020", 348122, 255721, 887, 123294),
-  createData("05-31-2020", 348122, 255721, 887, 123294),
-  createData("05-12-2020", 348123, 255721, 887, 123294),
-  createData("05-13-2020", 348124, 255721, 887, 123294),
-  createData("05-02-2020", 348123, 255721, 887, 123294),
-  createData("05-11-2020", 348122, 255721, 887, 123294),
-  createData("05-31-2020", 348122, 255721, 887, 123294),
-  createData("05-12-2020", 348123, 255721, 887, 123294),
-  createData("05-13-2020", 348124, 255721, 887, 123294),
-  createData("05-02-2020", 348123, 255721, 887, 123294),
-  createData("05-11-2020", 348122, 255721, 887, 123294),
-  createData("05-31-2020", 348122, 255721, 887, 123294),
-];
+
+
+const rows = [];
+
+export function insertData(data){
+   data.sales && data.sales.forEach((sale) => {
+        rows.push(createData(sale.weekEnding, sale.retailSales, sale.wholesaleSales, sale.unitsSold, sale.retailerMargin))
+    })
+}
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
