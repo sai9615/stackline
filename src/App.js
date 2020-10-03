@@ -3,9 +3,9 @@ import logo from './logo.svg';
 import {fetchData} from './actions/getDataAction'
 import {useSelector, useDispatch} from 'react-redux'
 import './App.css';
-import Header from './Header';
-import Product from './Product';
-import Table, {insertData}   from './Table';
+import Header from './components/Header/Header';
+import Product from './components/Product/Product';
+import Table, {insertData}   from './components/Table/Table';
 
 function App() {
   const state = useSelector(state => state.getDataReducer)
